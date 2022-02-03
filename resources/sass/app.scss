@@ -82,3 +82,14 @@ body {
 @import '~@fortawesome/fontawesome-free/scss/brands';
 
 /* universal */
+
+// 3.3章 调整注册表单样式
+/* User register page */
+.register-page {
+  img.captcha {
+    cursor: pointer;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    padding: 5px;
+  }
+}
