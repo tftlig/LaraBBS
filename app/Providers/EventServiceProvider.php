@@ -18,6 +18,11 @@ class EventServiceProvider extends ServiceProvider
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],
+
+        // 3.7章 加入监听
+        \Illuminate\Auth\Events\Verified::class => [
+            \App\Listeners\EmailVerified::class,
+        ],
     ];
 
     /**

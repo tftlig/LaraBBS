@@ -33,6 +33,7 @@ class VerificationController extends Controller
      *
      * @return void
      */
+    // 3.7章：中间件解释
     public function __construct()
     {
         $this->middleware('auth');
