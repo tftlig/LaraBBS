@@ -36,3 +36,13 @@ Route::get('email/verify', 'Auth\VerificationController@show')->name('verificati
 Route::get('email/verify/{id}/{hash}', 'Auth\VerificationController@verify')->name('verification.verify');
 Route::post('email/resend', 'Auth\VerificationController@resend')->name('verification.resend');
 
+// 4.1章：注册user资源控制器的路由，遵循 RESTful URI 的规范
+Route::resource('users','UsersController',['only' => ['show','update','edit']]);
+// 上面代码等同于
+// Route::get('/users/{user}', 'UsersController@show')->name('users.show');
+// Route::get('/users/{user}/edit', 'UsersController@edit')->name('users.edit');
+// Route::patch('/users/{user}', 'UsersController@update')->name('users.update');
+
+
+
+
