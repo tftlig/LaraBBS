@@ -12,10 +12,14 @@
       <img class="card-img-top" src="https://cdn.learnku.com/uploads/images/201709/20/1/PtDKbASVcz.png?imageView2/1/w/600/h/600" alt="{{ $user->name }}">
       <div class="card-body">
             <h5><strong>个人简介</strong></h5>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+            {{-- 4.3章 显示个人简介 --}}
+            <p>{{ $user->introduction }}</p>
             <hr>
             <h5><strong>注册于</strong></h5>
-            <p>January 01 1901</p>
+            {{-- 4.3章 时间戳友好的输出。 --}}
+            {{-- Carbon 是 PHP 知名的日期和时间操作扩展，Laravel 框架中使用此扩展来处理时间、日期相关的操作。
+              diffForHumans 是 Carbon 对象提供的方法，提供了可读性更佳的日期展示形式。 --}}
+            <p>{{$user->created_at->diffForHumans()}}</p>
       </div>
     </div>
   </div>
