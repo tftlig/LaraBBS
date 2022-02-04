@@ -24,7 +24,7 @@
         <li class="nav-item dropdown">
             {{-- data-toggle="dropdown" 中加了bs，解决下拉菜单无反应问题 --}}
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <img src="https://cdn.learnku.com/uploads/images/201709/20/1/PtDKbASVcz.png?imageView2/1/w/60/h/60" class="img-responsive img-circle" width="30px" height="30px">
+            <img src="{{ $user->avatar }}" class="img-responsive img-circle" width="30px" height="30px">
             {{ Auth::user()->name }}
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
