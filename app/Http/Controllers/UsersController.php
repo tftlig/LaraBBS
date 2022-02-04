@@ -10,6 +10,13 @@ use App\Handlers\ImageUploadHandler;
 // 4.1章：Laravel 的控制器命名规范统一使用驼峰式大小写和复数形式来命名
 class UsersController extends Controller
 {
+    // 限制游客访问
+    // 使用 Laravel 提供身份验证（Auth）中间件来过滤未登录用户的 edit, update 动作
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => ['show']]);
+    }
+
     // 4.1章 展示个人页面
     // Laravel 会自动解析定义在控制器方法（变量名匹配路由片段）中的 Eloquent 模型类型声明。
     // 在下面代码中，由于 show() 方法传参时声明了类型 —— Eloquent 模型 User，
@@ -26,6 +33,8 @@ class UsersController extends Controller
 
     // 4.2章 编辑个人资料
     public function edit(User $user){
+        // 4.8章，添加授权
+        $this->authorize('update', $user);
         return view('users.edit',compact('user'));
     }
 
@@ -33,6 +42,9 @@ class UsersController extends Controller
     // 4.4章 上传头像
     public function update(UserRequest $request, ImageUploadHandler $uploader, User $user)
     {
+        // 4.8章，添加授权
+        $this->authorize('update', $user);
+
         $data = $request->all();
 
         if ($request->avatar) {
