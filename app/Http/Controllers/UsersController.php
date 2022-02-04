@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Http\Requests\UserRequest;
 
 // 4.1章：Laravel 的控制器命名规范统一使用驼峰式大小写和复数形式来命名
 class UsersController extends Controller
@@ -22,5 +23,15 @@ class UsersController extends Controller
         // 并作为第二个参数传递给 view 方法，将变量数据传递到视图中。
     }
 
+    // 4.2章 编辑个人资料
+    public function edit(User $user){
+        return view('users.edit',compact('user'));
+    }
+
+    // 4.2章 更新个人资料
+    public function update(UserRequest $request,User $user){
+        $user->update($request->all());
+        return redirect()->route('users.show',$user->id)->with('success','个人资料更新成功');
+    }
 
 }
