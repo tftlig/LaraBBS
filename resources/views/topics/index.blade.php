@@ -1,11 +1,18 @@
 @extends('layouts.app')
 
-@section('title', '话题列表')
+{{--5.7章 使用 三元运算符 来定制 title 区块 --}}
+@section('title', isset($category) ? $category->name : '话题列表')
 
 @section('content')
 
 <div class="row mb-5">
   <div class="col-lg-9 col-md-9 topic-list">
+    {{-- 5.7章 标示当前所在的分类 --}}
+    @if (isset($category))
+      <div class="alert alert-info" role="alert">
+        {{ $category->name }} ：{{ $category->description }}
+      </div>
+    @endif
     <div class="card ">
 
       <div class="card-header bg-transparent">
