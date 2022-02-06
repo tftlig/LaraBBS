@@ -46,8 +46,10 @@ Route::resource('users','UsersController',['only' => ['show','update','edit']]);
 
 
 
+// 6.8 slug翻译
+Route::resource('topics', 'TopicsController', ['only' => ['index', 'create', 'store', 'update', 'edit', 'destroy']]);
+Route::get('topics/{topic}/{slug?}', 'TopicsController@show')->name('topics.show');
 
-Route::resource('topics', 'TopicsController', ['only' => ['index', 'show', 'create', 'store', 'update', 'edit', 'destroy']]);
 
 // 5.7章 分类下的话题列表
 Route::resource('categories', 'CategoriesController', ['only' => ['show']]);
