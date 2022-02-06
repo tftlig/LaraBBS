@@ -27,6 +27,12 @@
         <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">登录</a></li>
         <li class="nav-item"><a class="nav-link" href="{{ route('register') }}">注册</a></li>
         @else
+      {{-- 6.1章 顶部导航栏新增发帖入口 --}}
+        <li class="nav-item">
+            <a class="nav-link mt-1 mr-3 font-weight-bold" href="{{ route('topics.create') }}">
+              <i class="fa fa-plus"></i>
+            </a>
+          </li>
         <li class="nav-item dropdown">
             {{-- data-toggle="dropdown" 中加了bs，解决下拉菜单无反应问题 --}}
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
