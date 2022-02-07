@@ -52,6 +52,10 @@ class TopicObserver
 
     }
 
-
+    // 7.7章，连带话题 一块删除
+    public function deleted(Topic $topic)
+    {
+        \DB::table('replies')->where('topic_id', $topic->id)->delete();
+    }
 
 }

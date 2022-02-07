@@ -65,4 +65,10 @@ class Topic extends Model
         return $this->hasMany(Reply::class);
     }
 
+    // 7.7章  简化代码
+    public function updateReplyCount()
+    {
+        $this->reply_count = $this->replies->count();
+        $this->save();
+    }
 }
