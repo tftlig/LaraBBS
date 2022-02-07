@@ -56,3 +56,7 @@ Route::resource('categories', 'CategoriesController', ['only' => ['show']]);
 
 // 7.3章 发布回复路由
 Route::resource('replies', 'RepliesController', ['only' => ['store','destroy']]);
+
+
+// 7.5章 通知列表
+Route::resource('notifications', 'NotificationsController', ['only' => ['index']]);

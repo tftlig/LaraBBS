@@ -33,6 +33,15 @@
               <i class="fa fa-plus"></i>
             </a>
           </li>
+
+          {{-- 7.5章 新增 消息通知标记 区块 --}}
+        <li class="nav-item notification-badge">
+            <a class="nav-link mr-3 badge badge-pill badge-{{ Auth::user()->notification_count > 0 ? 'hint' : 'secondary' }} text-white" href="{{ route('notifications.index') }}">
+              {{ Auth::user()->notification_count }}
+            </a>
+        </li>
+
+
         <li class="nav-item dropdown">
             {{-- data-toggle="dropdown" 中加了bs，解决下拉菜单无反应问题 --}}
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
