@@ -41,6 +41,11 @@
     @include('layouts._footer')
   </div>
 
+  {{-- 8.2章  站点权限--}}
+  @if (app()->isLocal())
+    @include('sudosu::user-selector')
+  @endif
+
   <!-- Scripts -->
   <script src="{{ mix('js/app.js') }}"></script>
   {{-- 6.2章：主要布局文件中种下锚点 styles 和 scripts --}}
