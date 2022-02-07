@@ -23,6 +23,7 @@ class UsersTableSeeder extends Seeder
         $user->email = '173612205@qq.com';
         $user->avatar = 'https://cdn.learnku.com/uploads/images/201710/14/1/ZqM7iaP4CR.png';
         $user->password = bcrypt('12345678');
+        $user->assignRole('Founder');
         $user->save();
 
         $user = User::find(2);
@@ -30,6 +31,7 @@ class UsersTableSeeder extends Seeder
         $user->email = 'tftlig@sina.com';
         $user->avatar = 'https://cdn.learnku.com/uploads/images/201710/14/1/ZqM7iaP4CR.png';
         $user->password = bcrypt('12345678');
+        $user->assignRole('Maintainer');
         $user->save();
 
         $user = User::find(3);
