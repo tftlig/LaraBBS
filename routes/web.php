@@ -54,4 +54,5 @@ Route::get('topics/{topic}/{slug?}', 'TopicsController@show')->name('topics.show
 // 5.7章 分类下的话题列表
 Route::resource('categories', 'CategoriesController', ['only' => ['show']]);
 
-Route::resource('replies', 'RepliesController', ['only' => ['index', 'show', 'create', 'store', 'update', 'edit', 'destroy']]);
+// 7.3章 发布回复路由
+Route::resource('replies', 'RepliesController', ['only' => ['store','destroy']]);
