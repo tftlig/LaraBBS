@@ -60,3 +60,6 @@ Route::resource('replies', 'RepliesController', ['only' => ['store','destroy']])
 
 // 7.5章 通知列表
 Route::resource('notifications', 'NotificationsController', ['only' => ['index']]);
+
+// 8.8章 无权限提醒页面
+Route::get('permission-denied', 'PagesController@permissionDenied')->name('permission-denied');
