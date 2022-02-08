@@ -14,6 +14,8 @@ use Spatie\Permission\Traits\HasRoles;
 class User extends Authenticatable implements MustVerifyEmailContract
 {
     use HasApiTokens, HasFactory, Notifiable,MustVerifyEmailTrait,HasRoles;
+    // 9.1边栏活跃用户
+    use Traits\ActiveUserHelper;
 
     /**
      * The attributes that are mass assignable.
@@ -95,6 +97,7 @@ class User extends Authenticatable implements MustVerifyEmailContract
     // 8.4章 密码加密
     public function setPasswordAttribute($value)
     {
+
         // 如果值的长度等于 60，即认为是已经做过加密的情况
         if (strlen($value) != 60) {
 
