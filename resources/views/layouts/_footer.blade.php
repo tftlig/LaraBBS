@@ -4,6 +4,6 @@
       由 <a href="https://ys.endata.cn/BoxOffice/Movie" target="_blank">电影票房</a> 设计和编码 <span style="color: #e27575;font-size: 14px;">❤</span>
     </p>
 
-    <p class="float-right"><a href="mailto:173612205@qq.com">联系我们</a></p>
+    <p class="float-right"><a href="mailto:{{ setting('contact_email') }}">联系我们</a></p>
   </div>
 </footer>
