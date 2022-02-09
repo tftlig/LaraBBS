@@ -13,7 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 // 2.6章 首页
-Route::get('/','PagesController@root')->name('root');
+// Route::get('/','PagesController@root')->name('root');
+Route::get('/', 'TopicsController@index')->name('root');
 
 
 // 3.1章：用户身份验证相关的路由
