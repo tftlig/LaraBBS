@@ -9,6 +9,7 @@ use App\Http\Requests\TopicRequest;
 use App\Models\Category;
 use Auth;
 use App\Models\User;
+use App\Models\Link;
 
 class TopicsController extends Controller
 {
@@ -29,14 +30,16 @@ class TopicsController extends Controller
 	// }
 
     // 我们尝试打印从缓存里读取出来的数据
-    public function index(Request $request, Topic $topic, User $user)
+    public function index(Request $request, Topic $topic, User $user, Link $link)
     {
         $topics = $topic->withOrder($request->order)
                         ->with('user', 'category')  // 预加载防止 N+1 问题
                         ->paginate(20);
         $active_users = $user->getActiveUsers();
         // dd($active_users);  这行是测试打印用户用户的
-        return view('topics.index', compact('topics', 'active_users'));
+
+        $links = $link->getAllCached();
+        return view('topics.index', compact('topics', 'active_users', 'links'));
     }
 
     public function show(Request $request,Topic $topic)
