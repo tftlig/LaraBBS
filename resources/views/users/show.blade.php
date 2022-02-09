@@ -20,6 +20,10 @@
             {{-- Carbon 是 PHP 知名的日期和时间操作扩展，Laravel 框架中使用此扩展来处理时间、日期相关的操作。
               diffForHumans 是 Carbon 对象提供的方法，提供了可读性更佳的日期展示形式。 --}}
             <p>{{$user->created_at->diffForHumans()}}</p>
+            {{-- 9.4章  在 『注册于』 区块下新增 『最后活跃』--}}
+            <hr>
+            <h5><strong>最后活跃</strong></h5>
+            <p title="{{  $user->last_actived_at }}">{{ $user->last_actived_at->diffForHumans() }}</p>
       </div>
     </div>
   </div>

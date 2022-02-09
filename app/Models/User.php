@@ -16,6 +16,7 @@ class User extends Authenticatable implements MustVerifyEmailContract
     use HasApiTokens, HasFactory, Notifiable,MustVerifyEmailTrait,HasRoles;
     // 9.1边栏活跃用户
     use Traits\ActiveUserHelper;
+    use Traits\LastActivedAtHelper;
 
     /**
      * The attributes that are mass assignable.
